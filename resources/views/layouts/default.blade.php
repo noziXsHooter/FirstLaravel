@@ -20,17 +20,17 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                 </svg>
-                <span class="ml-3 text-xl">My store</span>
+                <span class="ml-3 text-xl">Minha Loja</span>
             </a>
             <div class="flex items-center">
                 <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                     <a href="/" class="mr-5 hover:text-gray-900">Home</a>
                 </nav>
-                <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base md:mt-0">Admin
+                <a href="{{ route('admin.products') }}" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base md:mt-0">Admin
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                     </svg>
-                </button>
+                </a>
             </div>
         </div>
     </header>
@@ -39,8 +39,8 @@
 
     <footer class="text-gray-600">
         <div class="border-t border-gray-200">
-            <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
-                <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+             <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
+            {{--<div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
                     <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
                         <label for="footer-field" class="leading-7 text-sm text-gray-600">Placeholder</label>
                         <input type="text" id="footer-field" name="footer-field" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -49,7 +49,7 @@
                     <p class="text-gray-500 text-sm md:ml-6 md:mt-0 mt-2 sm:text-left text-center">Bitters chicharrones fanny pack
                         <br class="lg:block hidden">waistcoat green juice
                     </p>
-                </div>
+                </div>--}}
                 <span class="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
             <a class="text-gray-500">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -79,9 +79,9 @@
         <div class="bg-gray-100">
             <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
                 <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 Tailblocks —
-                    <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">@knyttneve</a>
+                    <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">noziX</a>
                 </p>
-                <span class="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-500 text-sm">Enamel pin tousled raclette tacos irony</span>
+                <span class="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-500 text-sm">Copyright 2022 © All Rights Reserved.</span>
             </div>
         </div>
     </footer>

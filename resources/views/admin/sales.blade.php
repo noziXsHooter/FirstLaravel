@@ -1,13 +1,13 @@
 @extends('layouts.default')
 
 @section('content')
-   {{--  {{ dd($products) }} --}}
+   {{--  {{ dd($sales) }} --}}
     <section class="text-gray-600">
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                 <div class="flex items-center justify-between mb-2">
-                    <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Produtos</h1>
-                    <a href="{{ route('admin.products.create') }}" class="flex ml-auto text-white bg-indigo-500 border-0 py-1.5 px-3 text-sm focus:outline-none hover:bg-indigo-600 rounded">Adicionar</a>
+                    <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Vendas</h1>
+                    <a href="{{ route('admin.sales.create') }}" class="flex ml-auto text-white bg-indigo-500 border-0 py-1.5 px-3 text-sm focus:outline-none hover:bg-indigo-600 rounded">Adicionar</a>
                 </div>
                 <table class="table-auto w-full text-left whitespace-no-wrap">
                     <thead>
@@ -22,7 +22,7 @@
                     </thead>
                     <tbody class="divide-y">
 
-                    @foreach ($products as $product)
+                    @foreach ($sales as $sale)
 
                     {{-- LOOP COM PROPRIEDADES  --}}
                         {{-- <pre>
@@ -32,19 +32,19 @@
 
                         {{-- COLORE O FUNDO DA LINHA --}}
                         <tr @if($loop->even)class="bg-gray-100"@endif>
-                            <td class="px-4 py-3">{{ $product->id }}</td>
+                            <td class="px-4 py-3">{{ $sale->id }}</td>
                             <td class="px-4 py-3">
-                                <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ Storage::url($product->cover) }}"> {{-- ARTISAN STORAGE:LINK --}}
+                                <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ Storage::url($sale->cover) }}"> {{-- ARTISAN STORAGE:LINK --}}
                             </td>
-                            <td class="px-4 py-3">{{ $product->name }}</td>
-                            <td class="px-4 py-3">R${{ $product->price }}</td>
-                            <td class="px-4 py-3">{{ $product->stock }}</td>
+                            <td class="px-4 py-3">{{ $sale->name }}</td>
+                            <td class="px-4 py-3">R${{ $sale->price }}</td>
+                            <td class="px-4 py-3">{{ $sale->stock }}</td>
                             <td class="px-4 py-3 text-sm text-right space-x-3 text-gray-900">
-                                <a href="{{ route('admin.products.edit', $product->id) }}" class="mt-3 text-indigo-500 inline-flex items-center">Editar</a>
+                                <a href="{{ route('admin.sales.edit', $sale->id) }}" class="mt-3 text-indigo-500 inline-flex items-center">Editar</a>
 
 
                                 {{-- É NECESSARIO QUE FORM SEJA CRIADO COMO METHOD POST, TRANSFORMA EM METHOD-DELETE COM CSRF E BUTTON --}}
-                                <form method="POST" action= "{{ route('admin.products.destroy', $product->id) }}">
+                                <form method="POST" action= "{{ route('admin.sales.destroy', $sale->id) }}">
 
                                     @method('delete')
                                     @csrf

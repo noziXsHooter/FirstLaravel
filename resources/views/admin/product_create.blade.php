@@ -12,9 +12,22 @@
                 <form enctype="multipart/form-data" method="POST" action=" {{ route('admin.products.store') }}">
                     @csrf
                     <div class="flex flex-wrap">
+
                         <div class="p-2 w-1/2">
                             <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Nome do produto</label>
+                                <label for="name" class="leading-7 text-sm text-gray-600">ID:</label>
+                                <input value="{{ old('product_id') }}" type="text" id="product_id" name="product_id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+
+                            @error('product_id')
+                                <div class="text-red-400 text-sm">{{ $message }}</div>
+                            @enderror
+
+                        </div>
+
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="name" class="leading-7 text-sm text-gray-600">Nome:</label>
                                 <input value="{{ old('name') }}" type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
 
@@ -24,9 +37,22 @@
 
                         </div>
 
+
                         <div class="p-2 w-1/2">
                             <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Preço</label>
+                                <label for="name" class="leading-7 text-sm text-gray-600">Cor:</label>
+                                <input value="{{ old('color') }}" type="text" id="color" name="color" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+
+                            @error('color')
+                                <div class="text-red-400 text-sm">{{ $message }}</div>
+                            @enderror
+
+                        </div>
+
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="name" class="leading-7 text-sm text-gray-600">Preço:</label>
                                 <input value="{{ old('price') }}" type="text" id="price" name="price" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 
@@ -38,7 +64,7 @@
 
                         <div class="p-2 w-1/2">
                             <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Estoque</label>
+                                <label for="name" class="leading-7 text-sm text-gray-600">Estoque:</label>
                                 <input value="{{ old('stock') }}" type="text" id="stock" name="stock" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
 
@@ -50,7 +76,19 @@
 
                         <div class="p-2 w-1/2">
                             <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Imagem de capa</label>
+                                <label for="name" class="leading-7 text-sm text-gray-600">Fornecedor:</label>
+                                <input value="{{ old('provider') }}" type="text" id="provider" name="provider" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+
+                            @error('color')
+                                <div class="text-red-400 text-sm">{{ $message }}</div>
+                            @enderror
+
+                        </div>
+
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="name" class="leading-7 text-sm text-gray-600">Imagem de capa:</label>
                                 <input type="file" id="cover" name="cover" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
                             </div>
 
@@ -62,7 +100,7 @@
 
                         <div class="p-2 w-full">
                             <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Descrição</label>
+                                <label for="name" class="leading-7 text-sm text-gray-600">Descrição:</label>
                                 <textarea id="description" name="description"
                                     class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{ old('description') }}</textarea>
                             </div>
