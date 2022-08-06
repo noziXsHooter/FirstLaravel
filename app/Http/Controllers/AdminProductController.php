@@ -17,10 +17,28 @@ class AdminProductController extends Controller
     {
         return view('admin.painel');
     }
+    public function search(Request $request)
+    {
+        //UMA OPÇAO DE BUSCA NO DB
+        //$products = Product::where('name', 'like', '%' . $request->search . '%')->get();
 
+        $products = Product::query();
+        /* dd($products); */
+        $products->when($request->search, function($query, $vl) {
+            $query->where('name', 'like', '%' . $vl . '%');
+
+        });
+
+        $products = $products->get(); // O GET DEVE SEMPRE ESTAR NO FINAL DA QUERY BUILDER OU ELOQUENT QUERY
+
+        return view('admin.products', [
+            'products' => $products
+        ]);
+    }
     public function index()
     {
         $products = Product::all();
+        /* dd($products); */
         return view('admin.products', compact('products'));
     }
 

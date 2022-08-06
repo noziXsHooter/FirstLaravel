@@ -48,8 +48,11 @@ Route::get('/admin/painel', [AdminProductController::class, 'show'])->name('admi
 
 //ADMIN - PRODUCTS
 Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products');
+Route::get('/admin/products/search', [AdminProductController::class, 'search'])->name('admin.products.search');
 Route::get('/admin/products/create', [AdminProductController::class, 'create'])->name('admin.products.create');
 Route::post('/admin/products', [AdminProductController::class, 'store'])->name('admin.products.store');
+
+
 
 Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('admin.products.edit');
 Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('admin.products.update');
