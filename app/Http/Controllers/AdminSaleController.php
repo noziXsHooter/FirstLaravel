@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaleStoreRequest;
+use App\Http\Requests\SaleUpdateRequest;
 use App\Models\Sale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -28,9 +29,9 @@ class AdminSaleController extends Controller
         }
 
         //RECEBE REQUISICAO PAR DAR UPDATE
-        public function update(Sale $sale, SaleStoreRequest $request)
+        public function update(Sale $sale, SaleUpdateRequest $request)
         {
-                $input = $request->validated();
+            $input = $request->validated();
 
             if (!empty($input['cover']) && $input['cover']->isValid()){
 
@@ -40,7 +41,7 @@ class AdminSaleController extends Controller
                 $input['cover'] = $path;
 
             }
-
+            /* dd($input); */
             $sale->fill($input);
             $sale->save();
 

@@ -24,20 +24,31 @@ class SaleStoreRequest extends FormRequest
     public function rules()
     {
         return [
-
-            'invoice' => 'required|integer',
-            'name' => 'required|string',
-            'address' => 'required|string',
+            'invoice' => 'nullable|integer',
+            'name' => 'nullable|string',
+            'address' => 'nullable|string',
             'reference' => 'nullable|string',
-            'phone1' => 'nullable|string',
-            'phone2' => 'nullable|string',
-            'cpf' => 'nullable|string',
-            'payment' => 'required|string',
+            'phone1' => 'nullable|numeric',
+            'phone2' => 'nullable|numeric',
+            'cpf' => 'nullable|numeric',
+            'payment' => 'nullable|string',
             'sale_products' => 'nullable|string',
             'discount' => 'nullable|numeric',
             'total' => 'nullable|numeric',
-            'cover' => 'nullable|string',
+            'cover' => 'nullable|file',
 
+/*             'invoice' => 'required|integer',
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'reference' => 'nullable|string',
+            'phone1' => 'required|numeric',
+            'phone2' => 'nullable|numeric',
+            'cpf' => 'nullable|numeric',
+            'payment' => 'nullable|string',
+            'sale_products' => 'required|string',
+            'discount' => 'nullable|numeric',
+            'total' => 'required|numeric',
+            'cover' => 'nullable|file', */
         ];
     }
 }

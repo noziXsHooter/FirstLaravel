@@ -39,6 +39,13 @@ Route::get('/product/{product:slug}', [ProductController::class, 'show'])->name(
 
 }); */
 
+//ADMIN - PAINEL
+
+Route::get('/admin/painel', [AdminProductController::class, 'show'])->name('admin.painel');
+
+
+
+
 //ADMIN - PRODUCTS
 Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products');
 Route::get('/admin/products/create', [AdminProductController::class, 'create'])->name('admin.products.create');

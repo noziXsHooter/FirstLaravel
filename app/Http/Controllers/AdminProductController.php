@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,6 +12,12 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminProductController extends Controller
 {
+
+    public function show()
+    {
+        return view('admin.painel');
+    }
+
     public function index()
     {
         $products = Product::all();
@@ -27,9 +34,10 @@ class AdminProductController extends Controller
     }
 
     //RECEBE REQUISICAO PAR DAR UPDATE
-    public function update(Product $product, ProductStoreRequest $request)
+    public function update(Product $product, ProductUpdateRequest $request)
     {
-            $input = $request->validated();
+
+        $input = $request->validated();
 
         if (!empty($input['cover']) && $input['cover']->isValid()){
 
@@ -38,7 +46,7 @@ class AdminProductController extends Controller
             $path = $file->store('public/images/products');
             $input['cover'] = $path;
 
-        }
+        };
 
         $product->fill($input);
         $product->save();

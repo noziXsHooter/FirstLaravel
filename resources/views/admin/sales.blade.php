@@ -12,11 +12,15 @@
                 <table class="table-auto w-full text-left whitespace-no-wrap">
                     <thead>
                     <tr>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">#</th>
+                       {{--  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">#</th> --}}
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Nota</th>
                         <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100" style="width: 150px">Imagem</th>
                         <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Nome</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Valor</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Estoque</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Endereço</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Telefone</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Pagamento</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Produtos</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Total</th>
                         <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 text-right">Ações</th>
                     </tr>
                     </thead>
@@ -32,13 +36,17 @@
 
                         {{-- COLORE O FUNDO DA LINHA --}}
                         <tr @if($loop->even)class="bg-gray-100"@endif>
-                            <td class="px-4 py-3">{{ $sale->id }}</td>
+                           {{--  <td class="px-4 py-3">{{ $sale->id }}</td> --}}
+                            <td class="px-4 py-3">{{ $sale->invoice }}</td>
                             <td class="px-4 py-3">
                                 <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ Storage::url($sale->cover) }}"> {{-- ARTISAN STORAGE:LINK --}}
                             </td>
                             <td class="px-4 py-3">{{ $sale->name }}</td>
-                            <td class="px-4 py-3">R${{ $sale->price }}</td>
-                            <td class="px-4 py-3">{{ $sale->stock }}</td>
+                            <td class="px-4 py-3">{{ $sale->address }}</td>
+                            <td class="px-4 py-3">{{ $sale->phone1 }}</td>
+                            <td class="px-4 py-3">{{ $sale->payment }}</td>
+                            <td class="px-4 py-3">{{ $sale->sale_products }}</td>
+                            <td class="px-4 py-3">R${{ $sale->total }}</td>
                             <td class="px-4 py-3 text-sm text-right space-x-3 text-gray-900">
                                 <a href="{{ route('admin.sales.edit', $sale->id) }}" class="mt-3 text-indigo-500 inline-flex items-center">Editar</a>
 

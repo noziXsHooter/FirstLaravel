@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('cpf')->nullable();
             $table->string('payment')->nullable();
             $table->string('sale_products')->nullable();
-            $table->float('discount')->default('0.00');
+            $table->float('discount')->nullable();
             $table->float('total')->default('0.00');
             $table->string('cover')->nullable();
             $table->timestamps();
