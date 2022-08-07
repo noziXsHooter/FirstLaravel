@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminClientController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminSaleController;
 
@@ -45,9 +46,9 @@ Route::get('/admin/painel', [AdminProductController::class, 'show'])->name('admi
 
 
 //          ################        ADMIN - CLIENTS         ################
-Route::get('/admin/clients', [AdminSaleController::class, 'index'])->name('admin.clients');
-Route::get('/admin/clients/create', [AdminSaleController::class, 'create'])->name('admin.clients.create');
-Route::post('/admin/clients', [AdminSaleController::class, 'store'])->name('admin.clients.store');
+Route::get('/admin/clients', [AdminClientController::class, 'index'])->name('admin.clients');
+Route::get('/admin/clients/create', [AdminClientController::class, 'create'])->name('admin.clients.create');
+Route::post('/admin/clients', [AdminClientController::class, 'store'])->name('admin.clients.store');
 
 Route::get('/admin/clients/{client}/edit', [AdminClientController::class, 'edit'])->name('admin.clients.edit');
 Route::put('/admin/clients/{client}', [AdminClientController::class, 'update'])->name('admin.clients.update');

@@ -2,6 +2,20 @@
 
 @section('content')
    {{--  {{ dd($sales) }} --}}
+
+   <section>
+        <div class="container p-5 mx-auto">
+            <form method="GET" action="/" class="flex items-center space-x-5">
+                <div>
+                    <input type="text" id="search" name="search" value="{{ request()->search }}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                </div>
+                <div>
+                    <button type="submit" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Pesquisar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <section class="text-gray-600">
         <div class="container px-5 py-24 mx-auto">
             <div class="w-full mx-auto overflow-auto">
@@ -9,7 +23,7 @@
                     <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Clientes</h1>
                     <a href="{{ route('admin.clients.create') }}" class="flex ml-auto text-white bg-indigo-500 border-0 py-1.5 px-3 text-sm focus:outline-none hover:bg-indigo-600 rounded">Adicionar</a>
                 </div>
-                <table class="table-auto w-full text-left whitespace-no-wrap">
+                <table class="table-auto w-full text-center whitespace-no-wrap">
                     <thead>
                     <tr>
                        {{--  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">#</th> --}}
@@ -26,7 +40,7 @@
                     </thead>
                     <tbody class="divide-y">
 
-                    @foreach ($clients as $client)
+                   @foreach ($clients as $client)
 
                     {{-- LOOP COM PROPRIEDADES  --}}
                         {{-- <pre>
@@ -36,8 +50,7 @@
 
                         {{-- COLORE O FUNDO DA LINHA --}}
                         <tr @if($loop->even)class="bg-gray-100"@endif>
-                           {{--  <td class="px-4 py-3">{{ $sale->id }}</td> --}}
-                            <td class="px-4 py-3">{{ $sale->invoice }}</td>
+                           <td class="px-4 py-3">{{ $client->id }}</td>
                             <td class="px-4 py-3">
                                 <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ Storage::url($client->cover) }}"> {{-- ARTISAN STORAGE:LINK --}}
                             </td>

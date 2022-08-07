@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SaleStoreRequest;
 use App\Http\Requests\SaleUpdateRequest;
-use App\Models\Sale;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
@@ -14,35 +14,35 @@ class AdminClientController extends Controller
 {
             public function index()
             {
-                $clients = Sale::all();
+                /* $clients = Client::all(); */
                 return view('admin.clients', compact('clients'));
             }
 
             //MOSTRAR A PAGINA DE EDITAR FORMULARIO
-            public function edit(Sale $sale)
+            public function edit(Client $client)
             {
 
-                return view('admin.sale_edit', [
-                    'sale'=>$sale
+                return view('admin.client_edit', [
+                    'client'=>$client
                 ]);
             }
 
             //RECEBE REQUISICAO PAR DAR UPDATE
-            public function update(Sale $sale, SaleUpdateRequest $request)
+            public function update(Client $client, SaleUpdateRequest $request)
             {
                 $input = $request->validated();
 
                 if (!empty($input['cover']) && $input['cover']->isValid()){
 
-                    Storage::delete($sale->cover ?? ''); //SE UMA NOVA IMAGEM FOR ENVIADA, A IMAGEM ANTERIOR SERÁ APAGADA
+                    Storage::delete($client->cover ?? ''); //SE UMA NOVA IMAGEM FOR ENVIADA, A IMAGEM ANTERIOR SERÁ APAGADA
                     $file = $input['cover'];
                     $path = $file->store('public/images/sales');
                     $input['cover'] = $path;
 
                 }
                 /* dd($input); */
-                $sale->fill($input);
-                $sale->save();
+                $client->fill($input);
+                $client->save();
 
                 return Redirect::route('admin.sales');
             }
@@ -70,13 +70,13 @@ class AdminClientController extends Controller
 
                 }
 
-                Sale::create($input);
+                Client::create($input);
 
                 return Redirect::route('admin.sales');
 
              }
 
-             public function destroy(Sale $sale)
+             public function destroy(Client $sale)
             {
                 Storage::delete($sale->cover ?? '');
                 $sale->delete();
@@ -85,7 +85,7 @@ class AdminClientController extends Controller
 
              }
 
-             public function destroyImage(Sale $sale)
+             public function destroyImage(Client $sale)
             {
                 Storage::delete($sale->cover ?? '');
                 $sale->cover = null;
