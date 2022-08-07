@@ -39,19 +39,31 @@ Route::get('/product/{product:slug}', [ProductController::class, 'show'])->name(
 
 }); */
 
-//ADMIN - PAINEL
+//          ################        ADMIN - PAINEL          ################
 
 Route::get('/admin/painel', [AdminProductController::class, 'show'])->name('admin.painel');
 
 
+//          ################        ADMIN - CLIENTS         ################
+Route::get('/admin/clients', [AdminSaleController::class, 'index'])->name('admin.clients');
+Route::get('/admin/clients/create', [AdminSaleController::class, 'create'])->name('admin.clients.create');
+Route::post('/admin/clients', [AdminSaleController::class, 'store'])->name('admin.clients.store');
+
+Route::get('/admin/clients/{client}/edit', [AdminClientController::class, 'edit'])->name('admin.clients.edit');
+Route::put('/admin/clients/{client}', [AdminClientController::class, 'update'])->name('admin.clients.update');
+
+Route::delete('/admin/clients/{client}', [AdminClientController::class, 'destroy'])->name('admin.clients.destroy');
+
+Route::get('/admin/clients/{client}/delete-image', [AdminClientController::class, 'destroyImage'])->name('admin.clients.destroyImage');
+
 
 
 //ADMIN - PRODUCTS
+//          ################        ADMIN - PRODUCTS          ################
 Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products');
 Route::get('/admin/products/search', [AdminProductController::class, 'search'])->name('admin.products.search');
 Route::get('/admin/products/create', [AdminProductController::class, 'create'])->name('admin.products.create');
 Route::post('/admin/products', [AdminProductController::class, 'store'])->name('admin.products.store');
-
 
 
 Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('admin.products.edit');
@@ -64,7 +76,8 @@ Route::get('/admin/products/{product}/delete-image', [AdminProductController::cl
 //Route::get('/admin/products/{product}/delete', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
 
 
-//ADMIN - SALES
+
+//          ################        ADMIN - SALES          ################
 Route::get('/admin/sales', [AdminSaleController::class, 'index'])->name('admin.sales');
 Route::get('/admin/sales/create', [AdminSaleController::class, 'create'])->name('admin.sales.create');
 Route::post('/admin/sales', [AdminSaleController::class, 'store'])->name('admin.sales.store');
