@@ -4,11 +4,11 @@
    {{--  {{ dd($sales) }} --}}
    <section class="text-gray-600 body-font">
     <div class="container p-2 mx-auto">
-        <div class="w-full mx-auto overflow-auto p-2 border rounded shadow-lg">
+        <div class="w-full mx-auto overflow-auto p-2 bg-indigo-100 border border-blue-300 rounded shadow-lg shadow-purple-700">
             <div class="grid sm:flex sm:p-10 justify-around pb-8">
                 {{--  <div class="grid flex-wrap -m-4"> --}}
                <div class="p-4">
-                 <div class="min-w-fit sm:w-25 md:w-30 lg:w-35 border-2 shadow-md border-gray-300 bg-indigo-50 rounded-lg overflow-hidden">
+                 <div class="min-w-fit sm:w-25 md:w-30 lg:w-35 border-2 shadow-md shadow-purple-700 border-indigo-100 bg-indigo-50 rounded-lg overflow-hidden">
                    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src={{ Storage::url('public/images/painel/salesicon.png') }} alt="salespic">
                    <div class="flex justify-center p-3">
                      <div class="flex items-center flex-wrap ">
@@ -18,7 +18,7 @@
                  </div>
                </div>
                <div class="p-4">
-                 <div class="min-w-fit sm:w-25 md:w-30 lg:w-35 border-2 shadow-md border-gray-300 bg-indigo-50 rounded-lg overflow-hidden">
+                 <div class="min-w-fit sm:w-25 md:w-30 lg:w-35 border-2 shadow-md shadow-purple-700 border-indigo-100 bg-indigo-50 rounded-lg overflow-hidden">
                    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src={{ Storage::url('public/images/painel/productsicon.png') }} alt="productspic">
                    <div class="flex justify-center p-3">
                        <div class="flex items-center flex-wrap ">
@@ -28,7 +28,7 @@
                    </div>
                </div>  {{-- </div> --}}
                <div class="p-4">
-                   <div class="min-w-fit sm:w-25 md:w-30 lg:w-35 border-2 shadow-md border-gray-300 bg-indigo-50 rounded-lg overflow-hidden">
+                   <div class="min-w-fit sm:w-25 md:w-30 lg:w-35 border-2 shadow-md shadow-purple-700 border-indigo-100 bg-indigo-50 rounded-lg overflow-hidden">
                      <img class="lg:h-48 md:h-36 w-full object-cover object-center" src={{ Storage::url('public/images/painel/clientsicon.png') }} alt="clientspic">
                      <div class="flex justify-center p-3">
                        <div class="flex items-center flex-wrap ">

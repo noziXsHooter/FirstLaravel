@@ -2,27 +2,39 @@
 
 @section('content')
    {{--  {{ dd($sales) }} --}}
-    <section class="text-gray-600">
-        <div class="container p-2 mx-auto">
-            <div class="w-full mx-auto overflow-auto p-2 border rounded shadow-lg">
+   <section class="text-gray-600">
+    <div class="container p-2 mx-auto">
+        <div class="w-full mx-auto overflow-auto p-2 bg-indigo-100 border border-blue-300 rounded shadow-lg shadow-purple-700">
+
+            {{-- SEARCH --}}
+            <div class="container p-2 mx-auto">
+                <form method="GET" action={{ route('admin.products.search') }} class="flex items-center space-x-5">
+                    <div>
+                        <input type="text" id="search" name="search" value="{{ request()->search }}" class="w-full bg-gray-20 bg-opacity-50 rounded border border-indigo-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    </div>
+                    <div>
+                        <button type="submit" class="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 flex ml-auto text-white border-0 py-2 px-6 rounded">Pesquisar</button>
+                    </div>
+                </form>
+            </div>
                 <div class="flex items-center justify-between mb-2">
-                    <h1 class="text-2xl font-medium title-font mt-2 mb-2 text-gray-900">Vendas</h1>
+                    <h1 class="text-2xl font-medium title-font ml-5 mt-2 mb-2 text-gray-900">Vendas</h1>
                     <a href="{{ route('admin.sales.create') }}" class="flex ml-auto text-white bg-indigo-500 border-0 py-1.5 px-3 text-sm focus:outline-none hover:bg-indigo-600 rounded">Adicionar</a>
                 </div>
                 <div class="overflow-auto rounded-lg border-2{{-- hidden md:block --}}">
                 <table class="table-auto w-full text-center whitespace-no-wrap">
                     <thead class="bg-gray-50 border-b-2 border-gray-300">
                     <tr>
-                       {{--  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">#</th> --}}
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Nota</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100" style="width: 150px">Imagem</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Nome</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Endereço</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Telefone</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Pagamento</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Produtos</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Total</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 text-right">Ações</th>
+                       {{--  <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100">#</th> --}}
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100">Nota</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100" style="width: 150px">Imagem</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100">Nome</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100">Endereço</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100">Telefone</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100">Pagamento</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100">Produtos</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100">Total</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-sm bg-gray-100 text-right">Ações</th>
                     </tr>
                     </thead>
                     <tbody class="divide-y">
