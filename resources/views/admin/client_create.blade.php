@@ -3,28 +3,15 @@
 @section('content')
 
     <section class="text-gray-600">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 py-10 mx-auto">
             <div class="lg:w-2/4 w-full mx-auto overflow-auto">
                 <div class="flex items-center justify-between mb-2">
-                    <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Adicionar venda</h1>
+                    <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Adicionar cliente</h1>
                 </div>
 
-                <form enctype="multipart/form-data" method="POST" action=" {{ route('admin.sales.store') }}" >
+                <form enctype="multipart/form-data" method="POST" action=" {{ route('admin.clients.store') }}" >
                     @csrf
                     <div class="flex flex-wrap">
-
-                        {{-- NOTA --}}
-                        <div class="p-2 w-1/2">
-                            <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Nota:</label>
-                                <input value="{{ old('invoice') }}" type="text" id="invoice" name="invoice" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            </div>
-
-                            @error('invoice')
-                                <div class="text-red-400 text-sm">{{ $message }}</div>
-                            @enderror
-
-                        </div>
 
                        {{--  NOME --}}
                         <div class="p-2 w-1/2">
@@ -36,7 +23,6 @@
                             @error('name')
                                 <div class="text-red-400 text-sm">{{ $message }}</div>
                             @enderror
-
                         </div>
 
                        {{--  ENDEREÇO --}}
@@ -103,73 +89,84 @@
  --}}
                         </div>
 
-                        {{-- FORMA DE PAGAMENTO --}}
-                        <div class="p-2 w-1/2">
-                            <div class = "relative">
-                                <label class="leading-7 text-sm text-gray-600" for="cars">Forma de pagamento:</label>
-                                <select name="payment" id="payment"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                <option disabled selected value> Escolha uma opção </option>
-                                <option value="cash">Espécie</option>
-                                <option value="pix">Pix</option>
-                                <option value="debit">Débito</option>
-                                <option value="credit">Crédito</option>
-                                <option value="other">Outro</option>
-                                </select>
-
-                            </div>
-                        </div>
-
-                        {{-- PRODUTOS --}}
-                        <div class="p-2 w-full">
-                            <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Produtos:</label>
-                                <textarea id="sale_products" name="sale_products" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{ old('sale_products') }}</textarea>
-                            </div>
-
-                            @error('sale_products')
-                                <div class="text-red-400 text-sm">{{ $message }}</div>
-                            @enderror
-
-                        </div>
-
-                        {{-- DESCONTO --}}
+                        {{-- IDENTIDADE --}}
                         <div class="p-2 w-1/2">
                             <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Desconto:</label>
-                                <input value="{{ old('discount') }}" type="text" id="discount" name="discount" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <label for="name" class="leading-7 text-sm text-gray-600">Identidade:</label>
+                                <input value="{{ old('identity') }}" type="text" id="identity" name="identity" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
-
-                            @error('discount')
-                                <div class="text-red-400 text-sm">{{ $message }}</div>
-                            @enderror
-
-                        </div>
-
-                        {{-- TOTAL --}}
-                        <div class="p-2 w-1/2">
-                            <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Total:</label>
-                                <input value="{{ old('total') }}" type="text" id="total" name="total" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            </div>
-
-                            @error('total')
-                                <div class="text-red-400 text-sm">{{ $message }}</div>
-                            @enderror
-
-                        </div>
-
-                        <div class="p-2 w-1/2">
-                            <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">Imagem da nota:</label>
-                                <input type="file" id="cover" name="cover" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                            </div>
-
-{{--                             @error('cover')
+{{--
+                            @error('identity')
                                 <div class="text-red-400 text-sm">{{ $message }}</div>
                             @enderror
  --}}
                         </div>
+
+                            {{--  EMAIL --}}
+                            <div class="p-2 w-1/2">
+                                <div class="relative">
+                                    <label for="name" class="leading-7 text-sm text-gray-600">Email:</label>
+                                    <input value="{{ old('email') }}" type="text" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                </div>
+
+{{--                                 @error('email')
+                                    <div class="text-red-400 text-sm">{{ $message }}</div>
+                                @enderror
+--}}
+                            </div>
+
+                        {{-- IDADE --}}
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="name" class="leading-7 text-sm text-gray-600">Idade:</label>
+                                <input value="{{ old('age') }}" type="text" id="age" name="age" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            </div>
+{{--
+                            @error('age')
+                                <div class="text-red-400 text-sm">{{ $message }}</div>
+                            @enderror
+ --}}
+                        </div>
+
+                       {{-- TOTAL COMPRADO --}}
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="name" class="leading-7 text-sm text-gray-600">Total Comprado:</label>
+                                <input value="{{ old('total') }}" type="text" id="total" name="total" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            </div>
+{{--
+                            @error('total')
+                                <div class="text-red-400 text-sm">{{ $message }}</div>
+                            @enderror
+ --}}
+                        </div>
+
+                      {{-- RATING--}}
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="name" class="leading-7 text-sm text-gray-600">Rating:</label>
+                                <input value="{{ old('rating') }}" type="text" id="rating" name="rating" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            </div>
+{{--
+                            @error('rating')
+                                <div class="text-red-400 text-sm">{{ $message }}</div>
+                            @enderror
+ --}}
+                    </div>
+                    {{-- AVATAR --}}
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                             <label for="name" class="leading-7 text-sm text-gray-600">Foto do Cliente:</label>
+                             <input type="file" id="cover" name="cover" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                      </div>
+
+{{--                @error('cover')
+                     <div class="text-red-400 text-sm">{{ $message }}</div>
+                 @enderror
+--}}
+
+                     </div>
+
                         <div class="p-2 w-full">
                             <button type="submit" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Adicionar</button>
                         </div>

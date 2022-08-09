@@ -22,6 +22,7 @@ class Sale extends Model
         'sale_products',
         'discount',
         'total',
-        'cover',        
+        'cover',
+        'created_at',
     ];
 }

@@ -31,9 +31,9 @@ class ClientStoreRequest extends FormRequest
             'phone2' => 'nullable|numeric',
             'cpf' => 'nullable|numeric',
             'identity' => 'nullable|numeric',
-            'email' => 'nullable|string',
+            'email' => 'nullable',
             /* 'points' => 'nullable|numeric', */
-            'distance' => 'nullable|numeric',
+            /* 'distance' => 'nullable|numeric', */
             'age' => 'nullable|numeric',
             'total' => 'nullable|numeric',
             'rating' => 'nullable|numeric',

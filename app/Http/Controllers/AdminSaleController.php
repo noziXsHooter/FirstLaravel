@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\SaleStoreRequest;
 use App\Http\Requests\SaleUpdateRequest;
 use App\Models\Sale;
@@ -9,7 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-
+use App\Exports\SalesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminSaleController extends Controller
 {
@@ -96,6 +98,10 @@ class AdminSaleController extends Controller
 
          }
 
+         public function export()
+         {
+             return Excel::download(new SalesExport, 'sales.xlsx');
+         }
 }
 
 

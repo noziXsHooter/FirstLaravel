@@ -28,14 +28,14 @@ class ClientFactory extends Factory
             'phone2' => $this->faker->randomDigit(),
             'cpf' => $this->faker->randomDigit(),
             'identity' => $this->faker->randomDigit(),
-            /* 'email' => $this->faker->email(), */
+            'email' => $this->faker->email(),
             'points' => $this->faker->randomDigit(),
             'distance' => $this->faker->randomDigit(),
             'age' => $this->faker->randomDigit(),
             'total' => $this->faker->randomFloat(1, 50, 2000),
             'rating' => $this->faker->randomDigit(),
-            /* 'cover' => $this->faker->imageUrl(), */
-            /* 'born_in' => $this->faker->date_create(), */
+            'cover' => $this->faker->imageUrl(),
+            'born_in' => $this->faker->date_create(),
             /* 'category'=>$this->faker->word, */
             /* 'volumes'=>$this->faker->word, */
             /* 'provider'=>$this->faker->word, */

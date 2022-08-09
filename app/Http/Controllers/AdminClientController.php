@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClientStoreRequest;
+use App\Http\Requests\ClientUpdateRequest;
 use App\Http\Requests\SaleStoreRequest;
 use App\Http\Requests\SaleUpdateRequest;
 use App\Models\Client;
@@ -21,14 +23,13 @@ class AdminClientController extends Controller
             //MOSTRAR A PAGINA DE EDITAR FORMULARIO
             public function edit(Client $client)
             {
-
                 return view('admin.client_edit', [
                     'client'=>$client
                 ]);
             }
 
             //RECEBE REQUISICAO PAR DAR UPDATE
-            public function update(Client $client, SaleUpdateRequest $request)
+            public function update(Client $client, ClientUpdateRequest $request)
             {
                 $input = $request->validated();
 
@@ -44,17 +45,17 @@ class AdminClientController extends Controller
                 $client->fill($input);
                 $client->save();
 
-                return Redirect::route('admin.sales');
+                return Redirect::route('admin.clients');
             }
 
             //MOSTRAR PAGINA DE CRIAR
             public function create()
             {
-                return view('admin.sale_create');
+                return view('admin.client_create');
             }
 
             //RECEBER A REQUISICAO DE CRIAR, VALIDAR NO FORM REQUEST (HTTP/REQUESTS/SALESTOREREQUEST)
-            public function store(SaleStoreRequest $request)
+            public function store(ClientStoreRequest $request)
             {
                 $input = $request->validated(); //JA VALIDADO NO FORM REQUEST
 
@@ -65,31 +66,31 @@ class AdminClientController extends Controller
                 if (!empty($input['cover']) && $input['cover']->isValid()){
 
                     $file = $input['cover'];
-                    $path = $file->store('public/images/sales');
+                    $path = $file->store('public/images/clients');
                     $input['cover'] = $path;
 
                 }
 
                 Client::create($input);
 
-                return Redirect::route('admin.sales');
+                return Redirect::route('admin.clients');
 
              }
 
-             public function destroy(Client $sale)
+             public function destroy(Client $client)
             {
-                Storage::delete($sale->cover ?? '');
-                $sale->delete();
+                Storage::delete($client->cover ?? '');
+                $client->delete();
 
-                return Redirect::route('admin.sales');
+                return Redirect::route('admin.clients');
 
              }
 
-             public function destroyImage(Client $sale)
+             public function destroyImage(Client $client)
             {
-                Storage::delete($sale->cover ?? '');
-                $sale->cover = null;
-                $sale->save();
+                Storage::delete($client->cover ?? '');
+                $client->cover = null;
+                $client->save();
 
                 return Redirect::back();
 

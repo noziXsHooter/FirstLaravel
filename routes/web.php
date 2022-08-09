@@ -90,6 +90,16 @@ Route::delete('/admin/sales/{sale}', [AdminSaleController::class, 'destroy'])->n
 
 Route::get('/admin/sales/{sale}/delete-image', [AdminSaleController::class, 'destroyImage'])->name('admin.sales.destroyImage');
 
+Route::get('admin/sales/export/', [AdminSaleController::class, 'export'])->name('admin.sales.export');  /* EXPORTA ARQUIVOS EXCEL */
+
+
+
+
+
+
+
+
+
 
 
 /* Route::prefix('usuarios')->group(function () {
