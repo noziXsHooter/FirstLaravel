@@ -20,6 +20,7 @@
                 <div class="flex items-center justify-between mb-2">
                     <h1 class="text-2xl font-medium title-font ml-5 mt-2 mb-2 text-gray-900">Vendas</h1>
                     <a href="{{ route('admin.sales.create') }}" class="flex ml-auto text-white bg-indigo-500 border-0 py-1.5 px-3 text-sm focus:outline-none hover:bg-indigo-600 rounded">Adicionar</a>
+                    <a href="{{ route('admin.sales.export') }}" class="flex ml-5 text-white bg-indigo-500 border-0 py-1 px-2 text-sm focus:outline-none hover:bg-indigo-600 rounded">Export .xlsx</a>
                 </div>
                 <div class="overflow-auto rounded-lg border-2{{-- hidden md:block --}}">
                 <table class="table-auto w-full text-center whitespace-no-wrap">

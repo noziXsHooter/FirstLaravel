@@ -28,7 +28,7 @@ class ClientFactory extends Factory
             'phone2' => $this->faker->randomDigit(),
             'cpf' => $this->faker->randomDigit(),
             'identity' => $this->faker->randomDigit(),
-            'email' => $this->faker->email(),
+            'email' => $this->faker->sentence,
             'points' => $this->faker->randomDigit(),
             'distance' => $this->faker->randomDigit(),
             'age' => $this->faker->randomDigit(),
