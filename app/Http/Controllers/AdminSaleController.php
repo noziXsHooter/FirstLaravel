@@ -107,7 +107,8 @@ class AdminSaleController extends Controller
 
          public function export()
          {
-             return Excel::download(new SalesExport, 'sales.xlsx');
+            return Excel::download(new SalesExport, 'sales.xlsx');
+
          }
 }
 

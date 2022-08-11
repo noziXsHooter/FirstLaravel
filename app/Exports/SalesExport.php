@@ -12,20 +12,18 @@ class SalesExport implements FromCollection, WithHeadings
     public function headings():array
     {
         return [
-            'invoice',
-            'name',
-            'slug',
-            'address',
-            'reference',
-            'phone1' ,
-            'phone2',
-            'cpf',
-            'payment',
-            'sale_products',
-            'discount',
-            'total',
-            'cover',
-            'created_at',
+            'NOTA',
+            'NOME',
+            'ENDEREÇO',
+            'REFERÊNCIA',
+            'TELEFONE 1' ,
+            'TELEFONE 2',
+            'CPF',
+            'PAGAMENTO',
+            'PRODUTOS',
+            'DESCONTO',
+            'TOTAL',
+            'DATA',
         ];
     }
 
@@ -35,6 +33,11 @@ class SalesExport implements FromCollection, WithHeadings
 
     public function collection()
     {
-        return Sale::all();
+        $lessslug = Sale::all();
+        $lessslug->makeHidden('id')->toArray();
+        $lessslug->makeHidden('slug')->toArray();
+        $lessslug->makeHidden('cover')->toArray();
+        $lessslug->makeHidden('updated_at')->toArray();git 
+        return $lessslug;
     }
 }
