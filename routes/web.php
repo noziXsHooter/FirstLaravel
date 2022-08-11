@@ -77,12 +77,16 @@ Route::get('/admin/products/{product}/delete-image', [AdminProductController::cl
 //Route::get('/admin/products/{product}/delete', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
 
 
-
 //          ################        ADMIN - SALES          ################
+
+//  #####   SHOW - ADMIN   #####
 Route::get('/admin/sales', [AdminSaleController::class, 'index'])->name('admin.sales');
 Route::get('/admin/sales/create', [AdminSaleController::class, 'create'])->name('admin.sales.create');
 Route::post('/admin/sales', [AdminSaleController::class, 'store'])->name('admin.sales.store');
 
+Route::get('/admin/sales/{sale}/show-invoice', [AdminSaleController::class, 'showInvoice'])->name('admin.sales.show_invoice');
+
+//  #####   EDIT - ADMIN   #####
 Route::get('/admin/sales/{sale}/edit', [AdminSaleController::class, 'edit'])->name('admin.sales.edit');
 Route::put('/admin/sales/{sale}', [AdminSaleController::class, 'update'])->name('admin.sales.update');
 
@@ -90,6 +94,8 @@ Route::delete('/admin/sales/{sale}', [AdminSaleController::class, 'destroy'])->n
 
 Route::get('/admin/sales/{sale}/delete-image', [AdminSaleController::class, 'destroyImage'])->name('admin.sales.destroyImage');
 
+
+//  #####   EXPORTING - ADMIN   #####
 Route::get('admin/sales/export/', [AdminSaleController::class, 'export'])->name('admin.sales.export');  /* EXPORTA ARQUIVOS EXCEL */
 
 

@@ -24,7 +24,6 @@ class AdminSaleController extends Controller
         //MOSTRAR A PAGINA DE EDITAR FORMULARIO
         public function edit(Sale $sale)
         {
-
             return view('admin.sale_edit', [
                 'sale'=>$sale
             ]);
@@ -77,6 +76,14 @@ class AdminSaleController extends Controller
 
             return Redirect::route('admin.sales');
 
+         }
+
+         //MOSTRA OS DADOS DA VENDA COM A IMAGEM GRANDE
+         public function showInvoice(Sale $sale)
+         {
+            return view('admin.sale_show_invoice', [
+                'sale'=>$sale
+            ]);
          }
 
          public function destroy(Sale $sale)

@@ -20,7 +20,7 @@
                 <div class="flex items-center justify-between mb-2">
                     <h1 class="text-2xl font-medium title-font ml-5 mt-2 mb-2 text-gray-900">Vendas</h1>
                     <a href="{{ route('admin.sales.create') }}" class="flex ml-auto text-white bg-indigo-500 border-0 py-1.5 px-3 text-sm focus:outline-none hover:bg-indigo-600 rounded">Adicionar</a>
-                    <a href="{{ route('admin.sales.export') }}" class="flex ml-5 text-white bg-indigo-500 border-0 py-1 px-2 text-sm focus:outline-none hover:bg-indigo-600 rounded">Export .xlsx</a>
+                    <a href="{{ route('admin.sales.export') }}" class="flex ml-5 text-white bg-indigo-500 border-0 py-1 px-2 text-sm focus:outline-none hover:bg-indigo-600 rounded">Exportar .xml</a>
                 </div>
                 <div class="overflow-auto rounded-lg border-2{{-- hidden md:block --}}">
                 <table class="table-auto w-full text-center whitespace-no-wrap">
@@ -53,7 +53,9 @@
                            {{--  <td class="px-4 py-3">{{ $sale->id }}</td> --}}
                             <td class="px-4 py-3">{{ $sale->invoice }}</td>
                             <td class="px-4 py-3">
-                                <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ Storage::url($sale->cover) }}"> {{-- ARTISAN STORAGE:LINK --}}
+                                <a href="{{ route('admin.sales.show_invoice', $sale->id) }}">
+                                    <img alt="ecommerce" class="object-cover object-center border-4 border-white w-full h-full block transform transition-all hover:scale-150" src="{{ Storage::url($sale->cover) }}"> {{-- ARTISAN STORAGE:LINK --}}
+                                </a>
                             </td>
                             <td class="px-4 py-3">{{ $sale->name }}</td>
                             <td class="px-4 py-3">{{ $sale->address }}</td>
@@ -66,7 +68,7 @@
 
 
                                 {{-- É NECESSARIO QUE FORM SEJA CRIADO COMO METHOD POST, TRANSFORMA EM METHOD-DELETE COM CSRF E BUTTON --}}
-                                <form method="POST" action= "{{ route('admin.sales.destroy', $sale->id) }}">
+                              {{--   <form method="POST" action= "{{ route('admin.sales.destroy', $sale->id) }}">
 
                                     @method('delete')
                                     @csrf
@@ -74,7 +76,7 @@
                                     <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center">Deletar</button>
 
                                </form>
-
+ --}}
                             </td>
                         </tr>
                      @endforeach
