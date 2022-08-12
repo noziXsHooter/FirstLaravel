@@ -24,7 +24,7 @@ class SaleUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'date' => 'nullable',
             'invoice' => 'nullable',
             'name' => 'nullable',
             'address' => 'nullable',

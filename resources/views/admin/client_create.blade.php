@@ -55,7 +55,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Telefone 1:</label>
-                                <input value="{{ old('phone1') }}" type="text" id="phone1" name="phone1" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('phone1') }}" type="number" id="phone1" name="phone1" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 
                             @error('phone1')
@@ -68,7 +68,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Telefone 2:</label>
-                                <input value="{{ old('phone2') }}" type="text" id="phone2" name="phone2" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('phone2') }}" type="number" id="phone2" name="phone2" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 
 {{--                             @error('phone2')
@@ -80,7 +80,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">CPF:</label>
-                                <input value="{{ old('cpf') }}" type="text" id="cpf" name="cpf" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('cpf') }}" type="number" id="cpf" name="cpf" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 {{--
                             @error('cpf')
@@ -93,7 +93,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Identidade:</label>
-                                <input value="{{ old('identity') }}" type="text" id="identity" name="identity" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('identity') }}" type="number" id="identity" name="identity" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 {{--
                             @error('identity')
@@ -119,7 +119,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Idade:</label>
-                                <input value="{{ old('age') }}" type="text" id="age" name="age" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('age') }}" type="number" id="age" name="age" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 {{--
                             @error('age')
@@ -132,7 +132,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Total Comprado:</label>
-                                <input value="{{ old('total') }}" type="text" id="total" name="total" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('total') }}" type="number" id="total" name="total" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 {{--
                             @error('total')
@@ -145,7 +145,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Rating:</label>
-                                <input value="{{ old('rating') }}" type="text" id="rating" name="rating" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('rating') }}" type="number" id="rating" name="rating" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 {{--
                             @error('rating')

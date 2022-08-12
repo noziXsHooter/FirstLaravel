@@ -19,7 +19,7 @@ class SaleFactory extends Factory
     {
         $name = $this->faker->sentence;
         return [
-
+            'date' => $this->faker->date(),
             'invoice' => $this->faker->randomDigit(),
             'name' => $name,
             'slug' => Str::slug($name),

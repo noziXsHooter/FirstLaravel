@@ -34,10 +34,7 @@ class SalesExport implements FromCollection, WithHeadings
     public function collection()
     {
         $lessslug = Sale::all();
-        $lessslug->makeHidden('id')->toArray();
-        $lessslug->makeHidden('slug')->toArray();
-        $lessslug->makeHidden('cover')->toArray();
-        $lessslug->makeHidden('updated_at')->toArray();git 
+        $lessslug->makeHidden(['id','slug', 'cover', 'updated_at'])->toArray();
         return $lessslug;
     }
 }

@@ -6,13 +6,29 @@
         <div class="container px-5 py-10 mx-auto">
             <div class="lg:w-2/4 w-full mx-auto overflow-auto">
                 <div class="flex items-center justify-between mb-2">
-                    <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Adicionar venda</h1>
+                    <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Editar venda</h1>
                 </div>
 
                 <form enctype="multipart/form-data" method="POST"  action=" {{ route('admin.sales.update', $sale->id) }}">
                     @csrf
                     @method('put')
                     <div class="flex flex-wrap">
+
+                        {{-- ##########  DATA EM FORMATO NORMAL ############# --}}
+                        <?php
+                            $convertdate = date("d-m-Y", strtotime($sale->date));
+                            $sale->date = str_replace("-","/","$convertdate");
+                        ?>
+
+                         {{-- DATA --}}
+                         <div class="p-2 w-1/2">
+                            <div class="datepicker relative" data-mdb-toggle-button="false">
+                            <label for="name" class="leading-7 text-sm text-gray-600">Data:</label>
+                              <input type="text" id="date" name="date" value="{{ old('date', $sale->date) }}"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                data-mdb-toggle="datepicker" placeholder="Escolha uma data"/>
+                            </div>
+                          </div>
 
                         {{-- NOTA --}}
                         <div class="p-2 w-1/2">

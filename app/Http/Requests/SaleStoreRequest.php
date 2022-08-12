@@ -24,6 +24,7 @@ class SaleStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'date' => 'nullable|date',
             'invoice' => 'nullable|integer',
             'name' => 'nullable|string',
             'address' => 'nullable|string',

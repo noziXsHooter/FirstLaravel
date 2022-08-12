@@ -13,11 +13,21 @@
                     @csrf
                     <div class="flex flex-wrap">
 
+                         {{-- DATA --}}
+                        <div class="p-2 w-1/2">
+                            <div class="datepicker relative" data-mdb-toggle-button="false">
+                            <label for="name" class="leading-7 text-sm text-gray-600">Data:</label>
+                              <input type="text" id="date" name="date" value="{{ old('invoice') }}"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                placeholder="Selecione uma data" data-mdb-toggle="datepicker" />
+                            </div>
+                          </div>
+
                         {{-- NOTA --}}
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Nota:</label>
-                                <input value="{{ old('invoice') }}" type="text" id="invoice" name="invoice" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input value="{{ old('invoice') }}" type="number" id="invoice" name="invoice" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
 
                             @error('invoice')
@@ -69,7 +79,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Telefone 1:</label>
-                                <input value="{{ old('phone1') }}" type="text" id="phone1" name="phone1" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('phone1') }}" type="number" id="phone1" name="phone1" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 
                             @error('phone1')
@@ -82,7 +92,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Telefone 2:</label>
-                                <input value="{{ old('phone2') }}" type="text" id="phone2" name="phone2" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('phone2') }}" type="number" id="phone2" name="phone2" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 
 {{--                             @error('phone2')
@@ -94,7 +104,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">CPF:</label>
-                                <input value="{{ old('cpf') }}" type="text" id="cpf" name="cpf" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <input value="{{ old('cpf') }}" type="number" id="cpf" name="cpf" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
 {{--
                             @error('cpf')
@@ -137,7 +147,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Desconto:</label>
-                                <input value="{{ old('discount') }}" type="text" id="discount" name="discount" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input value="{{ old('discount') }}" type="number" id="discount" name="discount" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
 
                             @error('discount')
@@ -150,7 +160,7 @@
                         <div class="p-2 w-1/2">
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">Total:</label>
-                                <input value="{{ old('total') }}" type="text" id="total" name="total" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input value="{{ old('total') }}" type="number" id="total" name="total" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
 
                             @error('total')

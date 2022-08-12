@@ -6,21 +6,23 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SaleStoreRequest;
 use App\Http\Requests\SaleUpdateRequest;
 use App\Models\Sale;
+use App\Models\Destination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\SalesExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class AdminSaleController extends Controller
 {
-        public function index()
+        public function index(Request $request)
         {
-            $sales = Sale::all();
-            return view('admin.sales', compact('sales'));
-        }
+            $sales = (Sale::all());
 
+                return view('admin.sales', compact('sales'));
+        }
         //MOSTRAR A PAGINA DE EDITAR FORMULARIO
         public function edit(Sale $sale)
         {
@@ -34,6 +36,10 @@ class AdminSaleController extends Controller
         {
             $input = $request->validated();
 
+            //FILTRA O VALOR DA DATA
+            $input['date'] = date("Y-d-m", strtotime($input['date']));
+
+            // VALIDA A IMAGEM
             if (!empty($input['cover']) && $input['cover']->isValid()){
 
                 Storage::delete($sale->cover ?? ''); //SE UMA NOVA IMAGEM FOR ENVIADA, A IMAGEM ANTERIOR SERÁ APAGADA
@@ -63,6 +69,10 @@ class AdminSaleController extends Controller
             //SALVA O SLUG DO NOME
             $input['slug'] = Str::slug($input['name']);
 
+            //FILTRA O VALOR DA DATA
+            $input['date'] = date("Y-d-m", strtotime($input['date']));
+            dd($input['date']);
+
             //SE HOUVER IMAGEM E FOR VALIDO SALVA A IMAGEM
             if (!empty($input['cover']) && $input['cover']->isValid()){
 
@@ -83,6 +93,7 @@ class AdminSaleController extends Controller
          {
             return view('admin.sale_show_invoice', [
                 'sale'=>$sale
+
             ]);
          }
 
@@ -107,7 +118,7 @@ class AdminSaleController extends Controller
 
          public function export()
          {
-            return Excel::download(new SalesExport, 'sales.xlsx');
+            return Excel::download(new SalesExport, 'sales.csv');
 
          }
 }

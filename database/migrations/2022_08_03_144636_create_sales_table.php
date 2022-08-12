@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->date('date')->nullable();
             $table->integer('invoice')->nullable();
             $table->string('name');
             $table->string('slug');
