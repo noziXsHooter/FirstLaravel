@@ -18,10 +18,11 @@
                             </div>
 
                             {{-- ##########  DATA EM FORMATO NORMAL ############# --}}
-                            {{
+                            <?php
                                 $convertdate = date("d-m-Y", strtotime($sale->date));
                                 $sale->date = str_replace("-","/","$convertdate");
-                            }}
+                            ?>
+
                             <div class="grid-cols-2">
                                 <div>
                                     <label for="" class="text-purple-700 underline hover:text-blue-600">Data:</label>

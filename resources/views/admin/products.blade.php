@@ -48,7 +48,7 @@
 
                         {{-- COLORE O FUNDO DA LINHA --}}
                         <tr @if($loop->even)class="bg-gray-100"@endif>
-                            <td class="p-3 font-medium">{{ $product->id }}</td>
+                            <td class="p-3 font-medium">{{ $product->product_id }}</td>
                             <td class="p-3 text-sm">
                                 <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ Storage::url($product->cover) }}"> {{-- ARTISAN STORAGE:LINK --}}
                             </td>
@@ -60,7 +60,7 @@
 
 
                                 {{-- É NECESSARIO QUE FORM SEJA CRIADO COMO METHOD POST, TRANSFORMA EM METHOD-DELETE COM CSRF E BUTTON --}}
-                                <form method="POST" action= "{{ route('admin.products.destroy', $product->id) }}">
+                               {{--  <form method="POST" action= "{{ route('admin.products.destroy', $product->id) }}">
 
                                     @method('delete')
                                     @csrf
@@ -68,7 +68,7 @@
                                     <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center hover:underline">Deletar</button>
 
                                </form>
-
+ --}}
                             </td>
                         </tr>
                      @endforeach

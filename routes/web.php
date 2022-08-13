@@ -33,12 +33,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 //SLUG mostra o link separado por '-' //
 Route::get('/product/{product:slug}', [ProductController::class, 'show'])->name('product');
 
-/* Route::get('/', function(){
-    $products = Product::all();
-    dd($products->toArray());
-    return view('home');
+Route::get('/', function(){
+    /* $products = Product::all();
+    dd($products->toArray()); */
+    return view('welcome');
 
-}); */
+});
 
 //          ################        ADMIN - PAINEL          ################
 
@@ -131,3 +131,13 @@ Route::get('/', function () {
     return view('welcome');
 });
  */
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

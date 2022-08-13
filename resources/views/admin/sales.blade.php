@@ -58,7 +58,7 @@
                            {{--  <td class="px-4 py-3">{{ $sale->id }}</td> --}}
                             <td class="px-2 py-2">{{ $sale->invoice }}</td>
                             <td class="px-2 py-2 ">{{ $sale->date }}</td>
-                            <td class="px-2 py-2 ml-auto">
+                            <td class="ml-auto">
                                 <a href="{{ route('admin.sales.show_invoice', $sale->id) }}">
                                     <img alt="ecommerce" class="object-cover object-center border-4 border-white w-20 h-full block transform transition-all hover:scale-150" src="{{ Storage::url($sale->cover) }}"> {{-- ARTISAN STORAGE:LINK --}}
                                 </a>
@@ -74,15 +74,15 @@
 
 
                                 {{-- É NECESSARIO QUE FORM SEJA CRIADO COMO METHOD POST, TRANSFORMA EM METHOD-DELETE COM CSRF E BUTTON --}}
-                              {{--   <form method="POST" action= "{{ route('admin.sales.destroy', $sale->id) }}">
+                               {{--  <form method="POST" action= "{{ route('admin.sales.destroy', $sale->id) }}">
 
                                     @method('delete')
                                     @csrf
 
                                     <button type="submit" class="mt-3 text-indigo-500 inline-flex items-center">Deletar</button>
 
-                               </form>
- --}}
+                               </form> --}}
+
                             </td>
                         </tr>
                      @endforeach
