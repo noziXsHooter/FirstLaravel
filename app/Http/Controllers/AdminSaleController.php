@@ -17,10 +17,24 @@ use Illuminate\Support\Facades\DB;
 
 class AdminSaleController extends Controller
 {
-        public function index(Request $request)
+/*        public function salesOrderByDesc()
         {
-            $sales = (Sale::all());
 
+            DB::table('sales')->orderBy('id', 'DESC')->chunk(100, function ($sales) {
+                 dd($sales);
+                return view('admin.sales', compact('sales'));
+//                  foreach ($sales as $sale) {
+ //                   array_push($newsales, $sale);
+
+ //                 }
+
+        }*/
+        public function index()
+        {
+            $originalsales = Sale::all();
+            $sales = $originalsales->sortDesc();
+            $sales->values()->all();
+            /* dd($sales); */
                 return view('admin.sales', compact('sales'));
         }
         //MOSTRAR A PAGINA DE EDITAR FORMULARIO
@@ -121,6 +135,8 @@ class AdminSaleController extends Controller
             return Excel::download(new SalesExport, 'sales.csv');
 
          }
+
+
 }
 
 

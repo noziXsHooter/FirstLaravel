@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('user/{user}', [UserController::class, 'show']);
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/lista', 'HomeController@index')->name('home');
 
 
 //SLUG mostra o link separado por '-' //
@@ -141,3 +141,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::fallback(function(){
+    return view('welcome');
+});
+
+

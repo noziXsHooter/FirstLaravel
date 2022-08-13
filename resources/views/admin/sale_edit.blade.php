@@ -15,10 +15,10 @@
                     <div class="flex flex-wrap">
 
                         {{-- ##########  DATA EM FORMATO NORMAL ############# --}}
-                        <?php
+                        @php
                             $convertdate = date("d-m-Y", strtotime($sale->date));
                             $sale->date = str_replace("-","/","$convertdate");
-                        ?>
+                        @endphp
 
                          {{-- DATA --}}
                          <div class="p-2 w-1/2">

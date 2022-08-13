@@ -18,10 +18,10 @@
                             </div>
 
                             {{-- ##########  DATA EM FORMATO NORMAL ############# --}}
-                            <?php
+                            @php
                                 $convertdate = date("d-m-Y", strtotime($sale->date));
                                 $sale->date = str_replace("-","/","$convertdate");
-                            ?>
+                            @endphp
 
                             <div class="grid-cols-2">
                                 <div>

@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-  {{--  {{ dd($sales) }}  --}}
+{{--    {{ dd($sales) }} --}}
    <section class="text-gray-600">
     <div class="container p-2 mx-auto">
         <div class="w-full mx-auto overflow-auto p-2 bg-indigo-100 border border-blue-300 rounded shadow-lg shadow-purple-700">
@@ -44,10 +44,10 @@
                     @foreach ($sales as $sale)
 
                         {{-- ##########  DATA EM FORMATO NORMAL ############# --}}
-                        <?php
+                        @php
                             $convertdate = date("d-m-Y", strtotime($sale->date));
                             $sale->date = str_replace("-","/","$convertdate");
-                        ?>
+                        @endphp
                     {{-- LOOP COM PROPRIEDADES  --}}
                         {{-- <pre>
                             {{ var_dump($loop); }}
